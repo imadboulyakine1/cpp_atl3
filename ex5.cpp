@@ -1,22 +1,38 @@
 #include <iostream>
 
-class T{
-    public:
-    static int value ;
+using namespace std;
+
+class test{
+private:
+    static int cmp;
+public:
     void call(){
-        value++ ;
+        cmp++;
+        cout<< "la fonction a été appelé"<<endl;
+    }
+    static int get_cmp(){
+    return cmp;
     }
 };
+int test::cmp=0;
 
-int T::value = 0; 
 
-int main() {
-    T obj1, obj2;
+int main()
+{
+    test T1;
+    test T2;
 
-    obj1.call();  
-    obj2.call(); 
+    T1.call();
+    T2.call();
+    T2.call();
 
-    std::cout << "T::value: " << T::value << std::endl; // Output: 2
-
+    cout<< "nombre d'appele est :" << test::get_cmp() <<endl;
     return 0;
 }
+
+
+
+
+
+
+
